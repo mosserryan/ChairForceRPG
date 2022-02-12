@@ -14,6 +14,7 @@ public class BattleScreen extends JFrame implements ActionListener {
     JButton attackButtonP2;
     JButton healButtonP2;
     JButton shieldButtonP2;
+    JButton resetButton;
     JLabel playerOneName;
     JLabel playerTwoName;
 
@@ -42,6 +43,14 @@ public class BattleScreen extends JFrame implements ActionListener {
         playerOneName.setFont(new Font("MV Boli", Font.BOLD, 40));
         playerTwoName.setFont(new Font("MV Boli", Font.BOLD, 40));
 
+        resetButton = new JButton();
+        resetButton.setBounds(825,600, 200, 110);
+        resetButton.addActionListener(this);
+        resetButton.setFocusable(false);
+        resetButton.setText("RESET");
+        resetButton.setFont(new Font("MV Boli", Font.BOLD, 32));
+        resetButton.setHorizontalTextPosition(JButton.CENTER);
+
 
         playerOne(p1Name, p1HP);
         playerTwo(p2Name, p2HP);
@@ -64,6 +73,9 @@ public class BattleScreen extends JFrame implements ActionListener {
         this.add(healButtonP2);
         this.add(shieldButtonP2);
         this.add(healthPointsP2);
+        this.add(resetButton);
+
+
 
     }
 
@@ -92,6 +104,7 @@ public class BattleScreen extends JFrame implements ActionListener {
         shieldButtonP1.addActionListener(this);
         shieldButtonP1.setFocusable(false);
         shieldButtonP1.setIcon(shieldIcon);
+        shieldButtonP1.setEnabled(false);
 
         healthPointsP1.setMaximum(healthPoints);
         healthPointsP1.setValue(healthPoints); // Variable
@@ -129,6 +142,7 @@ public class BattleScreen extends JFrame implements ActionListener {
         shieldButtonP2.addActionListener(this);
         shieldButtonP2.setFocusable(false);
         shieldButtonP2.setIcon(shieldIcon);
+        shieldButtonP2.setEnabled(false);
 
         healthPointsP2.setMaximum(healthPoints);
         healthPointsP2.setValue(healthPoints); // Variable
@@ -153,9 +167,13 @@ public class BattleScreen extends JFrame implements ActionListener {
                 healthPointsP2.setString(healthPointsP2.getValue() + "/" + healthPointsP2.getMaximum());
             }
 
-            if(healthPointsP2.getValue() <= 0) {
-                attackButtonP1.setEnabled(false);
-            }
+            attackButtonP1.setEnabled(false);
+            shieldButtonP1.setEnabled(false);
+            healButtonP1.setEnabled(false);
+
+            attackButtonP2.setEnabled(true);
+            shieldButtonP2.setEnabled(true);
+            healButtonP2.setEnabled(true);
 
         }
 
@@ -167,9 +185,13 @@ public class BattleScreen extends JFrame implements ActionListener {
                 healthPointsP1.setString(healthPointsP1.getValue() + "/" + healthPointsP1.getMaximum());
             }
 
-            if(healthPointsP1.getValue() <= 0) {
-                attackButtonP2.setEnabled(false);
-            }
+            attackButtonP2.setEnabled(false);
+            shieldButtonP2.setEnabled(false);
+            healButtonP2.setEnabled(false);
+
+            attackButtonP1.setEnabled(true);
+            shieldButtonP1.setEnabled(true);
+            healButtonP1.setEnabled(true);
 
         }
 
@@ -184,6 +206,14 @@ public class BattleScreen extends JFrame implements ActionListener {
 
             healthPointsP1.setString(healthPointsP1.getValue() + "/" + healthPointsP1.getMaximum());
 
+            attackButtonP1.setEnabled(false);
+            shieldButtonP1.setEnabled(false);
+            healButtonP1.setEnabled(false);
+
+            attackButtonP2.setEnabled(true);
+            shieldButtonP2.setEnabled(true);
+            healButtonP2.setEnabled(true);
+
         }
 
         if(e.getSource() == healButtonP2) {
@@ -196,6 +226,14 @@ public class BattleScreen extends JFrame implements ActionListener {
             }
 
             healthPointsP2.setString(healthPointsP2.getValue() + "/" + healthPointsP2.getMaximum());
+
+            attackButtonP2.setEnabled(false);
+            shieldButtonP2.setEnabled(false);
+            healButtonP2.setEnabled(false);
+
+            attackButtonP1.setEnabled(true);
+            shieldButtonP1.setEnabled(true);
+            healButtonP1.setEnabled(true);
 
         }
     }
