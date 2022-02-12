@@ -146,7 +146,7 @@ public class BattleScreen extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource() == attackButtonP1) {
-            System.out.println( playerOneName.getText() + " attack your target and deal 10 damage!");
+            System.out.println( playerOneName.getText() + " attacks " + playerTwoName.getText() + " for 10 damage!");
 
             if(healthPointsP2.getValue() > 0) {
                 healthPointsP2.setValue(healthPointsP2.getValue() - 10); // variable dependent
@@ -160,7 +160,7 @@ public class BattleScreen extends JFrame implements ActionListener {
         }
 
         if(e.getSource() == attackButtonP2) {
-            System.out.println("You attack your target and deal 10 damage!");
+            System.out.println(playerTwoName.getText() + " attacks " + playerOneName.getText() + " for 10 damage!");
 
             if(healthPointsP1.getValue() > 0) {
                 healthPointsP1.setValue(healthPointsP1.getValue() - 10); // variable dependent
@@ -177,9 +177,9 @@ public class BattleScreen extends JFrame implements ActionListener {
 
             if(healthPointsP1.getValue() < healthPointsP1.getMaximum()) {
                 healthPointsP1.setValue(healthPointsP1.getValue() + 30); // Change 30 to a passed in value.
-                System.out.println("You have healed 30 points of damage!");
+                System.out.println(playerOneName.getText() + " has healed 30 HP!");
             } else {
-                System.out.println("You are already full health.");
+                System.out.println(playerOneName.getText() + " is already at full health.");
             }
 
             healthPointsP1.setString(healthPointsP1.getValue() + "/" + healthPointsP1.getMaximum());
@@ -190,9 +190,9 @@ public class BattleScreen extends JFrame implements ActionListener {
 
             if(healthPointsP2.getValue() < healthPointsP2.getMaximum()) {
                 healthPointsP2.setValue(healthPointsP2.getValue() + 30); // Change 30 to a passed in value.
-                System.out.println("You have healed 30 points of damage!");
+                System.out.println( playerTwoName.getText() + " has healed 30 HP!");
             } else {
-                System.out.println("You are already full health.");
+                System.out.println(playerTwoName.getText() + " already has full health.");
             }
 
             healthPointsP2.setString(healthPointsP2.getValue() + "/" + healthPointsP2.getMaximum());

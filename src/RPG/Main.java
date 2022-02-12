@@ -7,9 +7,7 @@ public class Main {
     public static void main (String[] args) {
 
         String characterName01 = JOptionPane.showInputDialog("Enter your character's name.");
-
         Player ryeGuy = new Player(characterName01);
-
         System.out.println(ryeGuy);
         ryeGuy.createCharacter();
 
